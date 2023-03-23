@@ -6,47 +6,40 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Styles/SignupStyles.module.css";
 import { Form, FormGroup } from "react-bootstrap";
 
-interface SignupCredentials {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-}
-
 const SignupComponent = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
 
   const [nameError, setNameError] = useState<string>("");
   const [lastNameError, setLastNameError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>("");
+  const [usernameError, setUsernameError] = useState<string>("");
   const [formIsValid, setFormIsValid] = useState<boolean>(true);
   const http = useCustomHttp();
 
   const handleValidation = () => {
     let formValid = true;
 
-    if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+    if (username.length < 1 || /\s/.test(username)) {
       formValid = false;
-      setEmailError("Email not valid");
+      setUsernameError("Username is not valid");
     } else {
-      setEmailError("");
+      setUsernameError("");
     }
 
-    if (firstName.length < 1) {
+    if (firstName.length < 1 || /\s/.test(firstName)) {
       formValid = false;
-      setNameError("Name cannot be empty");
+      setNameError("Name is not valid");
     } else {
       setNameError("");
     }
 
-    if (lastName.length < 1) {
+    if (lastName.length < 1 || /\s/.test(lastName)) {
       formValid = false;
-      setLastNameError("Last name cannot be empty");
+      setLastNameError("Last name is not valid");
     } else {
       setLastNameError("");
     }
@@ -117,16 +110,16 @@ const SignupComponent = () => {
             )}
           </FormGroup>
           <FormGroup className="mt-3">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Username</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               className="mt-1"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
-            {emailError && (
-              <Form.Text className="text-danger">{emailError}</Form.Text>
+            {usernameError && (
+              <Form.Text className="text-danger">{usernameError}</Form.Text>
             )}
           </FormGroup>
           <FormGroup className="mt-3">

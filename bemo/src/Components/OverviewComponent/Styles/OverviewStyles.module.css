@@ -1,0 +1,22 @@
+.verticalHr {
+    width: 15vh;
+    transform: rotate(90deg);
+    position: absolute;
+    margin-left: 8vh;
+}
+
+.h3{
+    color: #9690AE;
+    font-size: 1rem;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+    display: flex;
+    font-size: 36px;
+    color: #5A78FF;
+    margin-top: 5vh;
+}

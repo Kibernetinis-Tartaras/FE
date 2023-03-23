@@ -7,17 +7,12 @@ import styles from "./Styles/LoginStyles.module.css";
 import { Form, FormGroup } from "react-bootstrap";
 import HeaderComponent from "../HeaderComponent/HeaderComponent";
 
-interface LoginCredentials {
-  email: string;
-  password: string;
-}
-
 const LoginComponent = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>("");
+  const [usernameError, setUsernameError] = useState<string>("");
   const [formIsValid, setFormIsValid] = useState<boolean>(true);
   const http = useCustomHttp();
   const redirectUrl = "http://localhost:3000/redirect";
@@ -26,11 +21,11 @@ const LoginComponent = () => {
   const handleValidation = () => {
     let formValid = true;
 
-    if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+    if (username.length < 1 || /\s/.test(username)) {
       formValid = false;
-      setEmailError("Email not valid");
+      setUsernameError("Username is not valid");
     } else {
-      setEmailError("");
+      setUsernameError("");
     }
 
     if (
@@ -79,16 +74,16 @@ const LoginComponent = () => {
             </Form.Label>
           </FormGroup>
           <FormGroup className="mt-3">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Username</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               className="mt-1"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
-            {emailError && (
-              <Form.Text className="text-danger">{emailError}</Form.Text>
+            {usernameError && (
+              <Form.Text className="text-danger">{usernameError}</Form.Text>
             )}
           </FormGroup>
           <FormGroup className="mt-3">

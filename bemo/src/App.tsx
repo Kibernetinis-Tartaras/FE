@@ -9,6 +9,7 @@ import LoginComponent from './Components/LoginComponent/LoginComponent';
 import SignupComponent from './Components/SignupComponent/SignupComponent';
 import StravaRedirect from './Components/StravaRedirect/StravaRedirect';
 import LandingPageComponent from './Components/LandingPageComponent/LandingPageComponent';
+import MainComponent from './Components/MainComponent/MainComponent';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginComponent/>} />
           <Route path="/signup" element={<SignupComponent/>} />
-          <Route path="/main" element={null} />
+          <Route path="/main" element={<MainComponent/>} />
           <Route path="/profile" element={null} />
           <Route path="/redirect" element={<StravaRedirect/>} />
           <Route path="/" element={<LandingPageComponent/>} />
