@@ -1,0 +1,77 @@
+.App {
+    background-color: white;
+}
+  
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: "PaytypeRg";
+}
+  
+.form {
+    width: 25vw;
+    height: 40vh;
+    box-shadow: rgb(31 29 39/ 16%) 1px 1px 10px;
+    padding-top: 3vh;
+    padding-bottom: 10vh;
+    border-radius: 8px;
+    background-color: white;
+}
+
+@media (max-width: 1200px) {
+    .form {
+        width: 40vw;
+        height: 45vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .form {
+        width: 80vw;
+        height: 45vh;
+    }
+}
+
+@media (max-height: 700px) and (max-width: 600px) {
+    .form {
+        width: 80vw;
+        height: 55vh;
+    }
+}
+  
+.content {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+  
+.title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+    color: #312939;
+    font-weight: 800;
+}
+  
+.label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #312939;
+}
+
+.link {
+    color: #736B93;
+}
+
+.link:hover {
+    color: #413961;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    div.example {
+        display: none;
+    }
+}

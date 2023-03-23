@@ -1,3 +1,15 @@
 .App {
   background-color: #F5F5F2;
 }
+
+@font-face {
+  font-family: "PaytypeBd";   /*Can be any text*/
+  src: local("PaytypeBd"),
+    url("./Fonts/Paytype-Bd.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PaytypeRg";   /*Can be any text*/
+  src: local("PaytypeRg"),
+    url("./Fonts/Paytype-Rg.ttf") format("truetype");
+}
