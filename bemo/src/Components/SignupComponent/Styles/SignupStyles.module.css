@@ -13,7 +13,7 @@
   
 .formValid {
     width: 25vw;
-    height: 40vh;
+    height: 60vh;
     box-shadow: rgb(31 29 39/ 16%) 1px 1px 10px;
     padding-top: 3vh;
     padding-bottom: 10vh;
@@ -23,7 +23,7 @@
 
 .formNotValid {
     width: 25vw;
-    height: 55vh;
+    height: 75vh;
     box-shadow: rgb(31 29 39/ 16%) 1px 1px 10px;
     padding-top: 3vh;
     padding-bottom: 10vh;
@@ -34,25 +34,25 @@
 @media (max-width: 1200px) {
     .formValid {
         width: 40vw;
-        height: 45vh;
+        height: 60vh;
     }
     .formNotValid {
         width: 50vw;
-        height: 55vh;
+        height: 75vh;
     }
 }
 
 @media (max-width: 600px) {
     .formValid {
         width: 80vw;
-        height: 45vh;
+        height: 60vh;
     }
     .formNotValid {
         width: 80vw;
-        height: 50vh;
+        height: 75vh;
     }
 }
-
+  
 .content {
     padding-left: 10%;
     padding-right: 10%;

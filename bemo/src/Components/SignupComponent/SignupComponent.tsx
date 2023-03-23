@@ -3,18 +3,25 @@ import { useState } from "react";
 import useCustomHttp from "../../CustomHooks/useCustomHttp";
 import globalStyles from "../../GlobalStyles/GlobalStyles.module.css";
 import { useNavigate } from "react-router-dom";
-import styles from "./Styles/LoginStyles.module.css";
+import styles from "./Styles/SignupStyles.module.css";
 import { Form, FormGroup } from "react-bootstrap";
 
-interface LoginCredentials {
+interface SignupCredentials {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
 }
 
-const LoginComponent = () => {
+const SignupComponent = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+
+  const [nameError, setNameError] = useState<string>("");
+  const [lastNameError, setLastNameError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
   const [formIsValid, setFormIsValid] = useState<boolean>(true);
@@ -28,6 +35,20 @@ const LoginComponent = () => {
       setEmailError("Email not valid");
     } else {
       setEmailError("");
+    }
+
+    if (firstName.length < 1) {
+      formValid = false;
+      setNameError("Name cannot be empty");
+    } else {
+      setNameError("");
+    }
+
+    if (lastName.length < 1) {
+      formValid = false;
+      setLastNameError("Last name cannot be empty");
+    } else {
+      setLastNameError("");
     }
 
     if (
@@ -59,15 +80,41 @@ const LoginComponent = () => {
         onSubmit={loginSubmit}
       >
         <Form.Group className={styles.content}>
-          <h3 className={styles.title}>Sign In</h3>
+          <h3 className={styles.title}>Sign Up</h3>
           <FormGroup>
-            Not registered yet?{" "}
+            Registered already?{" "}
             <Form.Label
               className={styles.link}
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/login")}
             >
-              Sign Up
+              Sign In
             </Form.Label>
+          </FormGroup>
+          <FormGroup className="mt-3">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              type="text"
+              className="mt-1"
+              placeholder="Enter first name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            {nameError && (
+              <Form.Text className="text-danger">{nameError}</Form.Text>
+            )}
+          </FormGroup>
+          <FormGroup className="mt-3">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              type="text"
+              className="mt-1"
+              placeholder="Enter last name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+            {lastNameError && (
+              <Form.Text className="text-danger">{lastNameError}</Form.Text>
+            )}
           </FormGroup>
           <FormGroup className="mt-3">
             <Form.Label>Email address</Form.Label>
@@ -109,4 +156,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default SignupComponent;
