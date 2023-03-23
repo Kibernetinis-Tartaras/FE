@@ -5,6 +5,7 @@ import globalStyles from "../../GlobalStyles/GlobalStyles.module.css";
 import { useNavigate } from "react-router-dom";
 import styles from "./Styles/LoginStyles.module.css";
 import { Form, FormGroup } from "react-bootstrap";
+import HeaderComponent from "../HeaderComponent/HeaderComponent";
 
 interface LoginCredentials {
   email: string;
@@ -61,7 +62,7 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container}>    
       <Form
         className={formIsValid ? styles.formValid : styles.formNotValid}
         onSubmit={loginSubmit}

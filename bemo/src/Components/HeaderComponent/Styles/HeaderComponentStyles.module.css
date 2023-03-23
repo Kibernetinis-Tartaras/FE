@@ -1,0 +1,71 @@
+.logoText {
+    color: #3C3246;
+    font-family: PaytypeBd;
+    font-size: 60px;
+    justify-content: flex-start;
+    margin-left: 10vh;
+}
+
+.logoTextSmall {
+    color: #3C3246;
+    font-family: PaytypeBd;
+    font-size: 35px;
+    justify-content: flex-start;
+    margin-left: 5vh;
+}
+
+@media (max-width: 600px) {
+    .logoText {
+        margin-left: 2vh;
+    }
+}
+
+.outerIcon {
+    position: relative;
+}
+  
+.innerIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.joinButton {
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+
+    position: relative;
+    width: 20vh;
+
+    font-family: PaytypeBd;
+    color: white;
+    background: #5A78FF;
+    border-radius: 24px;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.createButton {
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+
+    position: relative;
+    width: 20vh;
+    font-family: PaytypeBd;
+    color: #5A78FF;
+    background: white;
+    border-radius: 24px;
+    border: solid;
+    border-color: #5A78FF;
+    border-width: 1px;
+}
+
+.createButton:hover {
+    background-color: #4961CD;
+}
+
+.joinButton:hover {
+    background-color: #4961CD;
+}
