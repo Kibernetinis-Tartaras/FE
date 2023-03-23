@@ -8,6 +8,7 @@ import ErrorComponent from './Components/ErrorComponent/ErrorComponent';
 import LoginComponent from './Components/LoginComponent/LoginComponent';
 import SignupComponent from './Components/SignupComponent/SignupComponent';
 import StravaRedirect from './Components/StravaRedirect/StravaRedirect';
+import LandingPageComponent from './Components/LandingPageComponent/LandingPageComponent';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path="/main" element={null} />
           <Route path="/profile" element={null} />
           <Route path="/redirect" element={<StravaRedirect/>} />
-          <Route path="/" element={<LoginComponent/>} />
+          <Route path="/" element={<LandingPageComponent/>} />
           <Route path="/*" element={<ErrorComponent/>} />
         </Routes>
       </BrowserRouter>

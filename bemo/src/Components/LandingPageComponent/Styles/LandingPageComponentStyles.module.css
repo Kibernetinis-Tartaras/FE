@@ -1,0 +1,36 @@
+.header {
+    color: #312939;
+    font-family: "PaytypeBd";
+    font-size: 6rem;
+}
+
+.spanText {
+    color: #736B93;
+    font-family: "PaytypeBd";
+}
+
+.smallHeader {
+    color: #413961;
+    font-family: "PaytypeBd";
+    font-size: 2rem;
+}
+
+.learnButton {
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+
+    position: relative;
+    width: 20vh;
+
+    font-family: PaytypeBd;
+    color: white;
+    background: #5A78FF;
+    border-radius: 24px;
+    border: solid;
+    border-color: #312939;
+    border-width: 1px;
+}
+
+.learnButton:hover {
+    background-color: #4961CD;
+}

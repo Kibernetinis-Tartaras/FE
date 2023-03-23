@@ -10,7 +10,7 @@ import User from "../../Images/User.svg"
 import { Button } from "react-bootstrap";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-const HeaderComponent = () => {
+const HeaderComponentNotLogged = () => {
   const navigate = useNavigate();
 
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -25,26 +25,12 @@ const HeaderComponent = () => {
     <div>
         {width > 1000 ? <Navbar style={{backgroundColor: "#E8E8E5"}} expand="lg">
             <Navbar.Brand className={styles.logoText}>BeMo</Navbar.Brand>
-            <Nav  style={{marginLeft:"auto", marginRight:"5vh"}}>
-                <Button className={styles.createButton}>Create a challenge</Button>
+            <Nav style={{marginLeft:"auto", marginRight:"5vh"}}>
+                <Button className={styles.createButton} href="/signup">Sign Up</Button>
             </Nav>
             <Nav style={{ marginRight:"5vh"}}>
-                <Button className={styles.joinButton}>Join with code</Button>
+                <Button className={styles.joinButton} href="/login">Log In</Button>
             </Nav>
-            <Nav.Link href="#home" style={{ marginRight:"5vh"}}>
-                <img src={User} alt="Outer Icon" />
-            </Nav.Link>
-            <Nav.Link href="#home" style={{marginRight:"5vh"}}>
-                <img src={Settings} alt="Outer Icon" />
-            </Nav.Link>
-            <Nav.Link href="#home" style={{marginRight:"3vh"}}>
-                <div className={styles.outerIcon}>
-                    <img src={Oval} alt="Outer Icon" />
-                    <div className={styles.innerIcon}>
-                        <img src={LogOut} alt="Inner Icon" />
-                    </div>
-                </div>
-            </Nav.Link>
         </Navbar> : <Navbar style={{backgroundColor: "#E8E8E5"}} expand="lg">
             <Navbar.Brand className={styles.logoTextSmall}>BeMo</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} style={{marginLeft:"auto", marginRight:"3vh"}}/>
@@ -60,28 +46,14 @@ const HeaderComponent = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
+                    <hr className="navbar-divider" />
                         <Nav style={{alignItems:"center", display:"flex", marginBottom:"2vh"}}>
-                            <Button className={styles.createButton}>Create a challenge</Button>
+                            <Button className={styles.createButton} href="/signup">Sign Up</Button>
                         </Nav>
                         <Nav style={{alignItems:"center", display:"flex", marginBottom:"3vh"}}>
-                            <Button className={styles.joinButton}>Join with code</Button>
+                            <Button className={styles.joinButton} href="/login">Log In</Button>
                         </Nav>
-                        <Nav.Link href="#home" style={{justifyContent:"center", display:"flex"}}>
-                            <img src={User} alt="Outer Icon" />
-                        </Nav.Link>
                         <hr className="navbar-divider" />
-                        <Nav.Link href="#home" style={{justifyContent:"center", display:"flex"}}>
-                            <img src={Settings} alt="Outer Icon" />
-                        </Nav.Link>
-                        <hr className="navbar-divider" />
-                        <Nav.Link href="#home" style={{justifyContent:"center", display:"flex"}}>
-                            <div className={styles.outerIcon}>
-                                <img src={Oval} alt="Outer Icon" />
-                                <div className={styles.innerIcon}>
-                                    <img src={LogOut} alt="Inner Icon" />
-                                </div>
-                            </div>
-                        </Nav.Link>
                     </Nav>
                 </Offcanvas.Body>
             </Navbar.Offcanvas></Navbar>}
@@ -89,4 +61,4 @@ const HeaderComponent = () => {
   );
 };
 
-export default HeaderComponent;
+export default HeaderComponentNotLogged;
