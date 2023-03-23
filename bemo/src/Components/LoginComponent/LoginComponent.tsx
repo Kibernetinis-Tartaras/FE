@@ -19,6 +19,8 @@ const LoginComponent = () => {
   const [emailError, setEmailError] = useState<string>("");
   const [formIsValid, setFormIsValid] = useState<boolean>(true);
   const http = useCustomHttp();
+  const redirectUrl = "http://localhost:3000/redirect";
+  const scope = "read"
 
   const handleValidation = () => {
     let formValid = true;
@@ -50,6 +52,12 @@ const LoginComponent = () => {
   const loginSubmit = (e: any) => {
     e.preventDefault();
     setFormIsValid(handleValidation());
+  };
+
+  const handleLoginStrava = (e: any) => {
+    e.preventDefault();
+    const win: Window = window;
+    win.location = `https://www.strava.com/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=https://localhost:3000/&response_type=code&scope=activity:read`;
   };
 
   return (
@@ -101,6 +109,14 @@ const LoginComponent = () => {
           >
             <button type="submit" className={globalStyles.activeButton}>
               Submit
+            </button>
+          </FormGroup>
+          <FormGroup
+            className="mt-6"
+            style={{ display: "flex", justifyContent: "flex-start", marginTop:"5vh"}}
+          >
+            <button className={globalStyles.activeButton} onClick={(e) => handleLoginStrava(e)}>
+              Log in with Strava
             </button>
           </FormGroup>
         </Form.Group>
