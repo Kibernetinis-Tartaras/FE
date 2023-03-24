@@ -1,6 +1,21 @@
 import axios from "axios";
+import getCustomHttp from "../CustomHooks/useCustomHttp";
+import useCustomHtpp from "../CustomHooks/useCustomHttp";
 
 const { REACT_APP_CLIENT_ID, REACT_APP_CLIENT_SECRET } = process.env;
+
+type CreateUser = {
+    Name: string,
+    Surname: string,
+    Email: string,
+    Phone: string,
+    StravaCredentials: StravaCredentials
+};
+
+type StravaCredentials = {
+    AuthenticationToken: string,
+    RefreshToken: string
+};
 
 export const getParamValues = (url: string) => {
     return url
@@ -39,3 +54,32 @@ export const getUserData = async (userID:string, accessToken: string) => {
         console.log(error);
     }
 };
+
+export const getUser = async (userID: string) => {
+    try {
+        const httpClient = getCustomHttp();
+
+        const response = await httpClient.get(
+            `/user/${userID}`
+        );
+
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const createUser = async (userData: CreateUser) => {
+    try {
+        const httpClient = getCustomHttp();
+
+        const response = await httpClient.post(
+            `/user/register`,
+            userData
+        );
+
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+}

@@ -53,7 +53,7 @@ const LoginComponent = () => {
   const handleLoginStrava = (e: any) => {
     e.preventDefault();
     const win: Window = window;
-    win.location = `https://www.strava.com/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=https://localhost:3000/&response_type=code&scope=activity:read`;
+    win.location = `https://www.strava.com/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=http://localhost:3000/main&response_type=code&scope=activity:read`;
   };
 
   return (
@@ -101,18 +101,13 @@ const LoginComponent = () => {
           </FormGroup>
           <FormGroup
             className="mt-4"
-            style={{ display: "flex", justifyContent: "center" }}
+            style={{ display: "flex", justifyContent: "center", gap:"4vh"}}
           >
-            <button type="submit" className={globalStyles.activeButton}>
+            <button type="submit" className={globalStyles.activeButton} style={{position:"relative"}}>
               Submit
             </button>
-          </FormGroup>
-          <FormGroup
-            className="mt-6"
-            style={{ display: "flex", justifyContent: "flex-start", marginTop:"5vh"}}
-          >
-            <button className={globalStyles.activeButton} onClick={(e) => handleLoginStrava(e)}>
-              Log in with Strava
+            <button className={globalStyles.activeButton} style={{position:"relative"}} onClick={(e) => handleLoginStrava(e)}>
+              Strava login
             </button>
           </FormGroup>
         </Form.Group>
