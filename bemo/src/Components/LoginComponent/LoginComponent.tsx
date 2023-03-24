@@ -106,7 +106,7 @@ const LoginComponent = () => {
             <button type="submit" className={globalStyles.activeButton} style={{position:"relative"}}>
               Submit
             </button>
-            <button className={globalStyles.activeButton} style={{position:"relative"}} onClick={(e) => handleLoginStrava(e)}>
+            <button className={globalStyles.activeButton} style={{position:"relative", backgroundColor:"#fc5200"}} onClick={(e) => handleLoginStrava(e)}>
               Strava login
             </button>
           </FormGroup>
