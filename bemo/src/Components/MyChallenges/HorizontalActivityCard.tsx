@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { ChallengeProps } from "../../Dto/ChallengeProps";
 import ArrowRight from "../../Images/ArrowRight.svg";
 import ArrowDown from "../../Images/ArrowDown.svg";
@@ -32,7 +32,7 @@ const HorizontalActivityCard = ({
   };
 
   return (
-    <Card style={{ marginTop: "2vh" }}>
+    <Card>
       <Card.Body>
         <div className="d-flex justify-content-between">
           <div>
