@@ -1,0 +1,25 @@
+.activeButton {
+    align-items: center;
+    padding: 10px 24px 10px 24px;
+
+    position: relative;
+    width: 144px;
+
+    color: white;
+    background: #5A78FF;
+    border-radius: 24px;
+    border: none;
+}
+
+.activeButton:hover {
+    align-items: center;
+    padding: 10px 24px 10px 24px;
+
+    position: relative;
+    width: 144px;
+
+    color: white;
+    background: #4961CD;
+    border-radius: 24px;
+    border: none;
+}

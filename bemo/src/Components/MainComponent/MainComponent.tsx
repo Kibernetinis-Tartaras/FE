@@ -10,6 +10,7 @@ import Overview from "../OverviewComponent/OverviewComponent";
 import { OverviewProps } from "../../Dto/OverviewProps";
 import { over } from "lodash";
 import MyChallengesComponent from "../MyChallenges/MyChallengesComponent";
+import OpenChallengesComponent from "../MyChallenges/OpenChallengesComponent";
 
 const MainComponent = () => {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const MainComponent = () => {
       <HeaderComponent />
       <Overview {...overviewData} />
       <MyChallengesComponent />
+      <OpenChallengesComponent />
     </div>
   );
 };
