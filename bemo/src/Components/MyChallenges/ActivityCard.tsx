@@ -4,6 +4,7 @@ import Running from "../../Images/Running.svg";
 import Cycling from "../../Images/Cycling.svg";
 import Walking from "../../Images/Walking.svg";
 import { ChallengeProps } from "../../Dto/ChallengeProps";
+import { useNavigate } from "react-router-dom";
 
 const ActivityCard = ({
   id,
@@ -19,10 +20,12 @@ const ActivityCard = ({
     year: "numeric",
   });
 
+  const navigate = useNavigate();
+
   return (
     <>
       {isPublic == false ? (
-        <Card style={{ width:"15vw", height:"30vh", backgroundColor:"#E8E8E5", marginLeft:"5vh" }}>
+        <Card onClick={() => navigate(`/challenge/${id}`, { state: { name: name } })} style={{ width:"15vw", height:"30vh", backgroundColor:"#E8E8E5", marginLeft:"5vh", cursor:"pointer"}}>
           <Card.Body style={{ fontFamily: "PaytypeBd", display:"flex", flexDirection:"column"}}>
             <Card.Title style={{ display:"flex", justifyContent:"center"}}>{name}</Card.Title>
             {type == 0 ? <Card.Img variant="top" src={Running} style={{ height:"20vh"}}/> : null}

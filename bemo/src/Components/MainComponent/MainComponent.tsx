@@ -22,7 +22,7 @@ const MainComponent = () => {
     completedChallenges: 3,
   };
   return (
-    <div>
+    <div style={{height:"100vh"}}>
       <HeaderComponent />
       <Overview {...overviewData} />
       <MyChallengesComponent />

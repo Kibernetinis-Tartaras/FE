@@ -10,6 +10,7 @@ import SignupComponent from './Components/SignupComponent/SignupComponent';
 import StravaRedirect from './Components/StravaRedirect/StravaRedirect';
 import LandingPageComponent from './Components/LandingPageComponent/LandingPageComponent';
 import MainComponent from './Components/MainComponent/MainComponent';
+import LeaderboardComponent from "./Components/LeaderboardComponent/LeaderboardComponent";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/main" element={<MainComponent/>} />
           <Route path="/profile" element={null} />
           <Route path="/redirect" element={<StravaRedirect/>} />
+          <Route path="/challenge/:id" element={<LeaderboardComponent/>} />
           <Route path="/" element={<LandingPageComponent/>} />
           <Route path="/*" element={<ErrorComponent/>} />
         </Routes>
