@@ -1,19 +1,16 @@
 import React from "react";
-import { useState } from "react";
-import useCustomHttp from "../../CustomHooks/useCustomHttp";
-import globalStyles from "../../GlobalStyles/GlobalStyles.module.css";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Styles/LoginStyles.module.css";
-import { Form, FormGroup } from "react-bootstrap";
 import HeaderComponent from "../HeaderComponent/HeaderComponent";
 import Overview from "../OverviewComponent/OverviewComponent";
 import { OverviewProps } from "../../Dto/OverviewProps";
-import { over } from "lodash";
 import MyChallengesComponent from "../MyChallenges/MyChallengesComponent";
 import OpenChallengesComponent from "../MyChallenges/OpenChallengesComponent";
+import { useUserValidation } from "../../CustomHooks/useUserValidation";
 
 const MainComponent = () => {
   const navigate = useNavigate();
+  var isValid = useUserValidation();
   const overviewData: OverviewProps = {
     walking: 5,
     running: 10,
@@ -21,6 +18,13 @@ const MainComponent = () => {
     activeChallenges: 2,
     completedChallenges: 3,
   };
+
+  useEffect(() => {
+    if (!isValid) {
+      navigate("/");
+    }
+  });
+
   return (
     <div style={{height:"100vh"}}>
       <HeaderComponent />

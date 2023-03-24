@@ -37,27 +37,18 @@ const StravaRedirect = () => {
                 
                 if (user) {
                     newUser = await createUser({
-                        Name: tokens.athelete.firstname,
-                        Surname: tokens.athelete.lastname,
-                        Email: "",
-                        Phone: "",
-                        StravaCredentials: {
-                            AuthenticationToken: tokens.access_token,
-                            RefreshToken: tokens.refresh_token
-                        }
+                        firstName: tokens.athlete.firstname,
+                        lastName: tokens.athlete.lastname,
+                        username: tokens.athlete.username,
+                        password: "********"
                     });
                 }
 
                 if (newUser)
                 {
-                    localStorage.setItem("userId", newUser.data.userId);
+                    localStorage.setItem("user", newUser.data.userId);
                 }
 
-                // Axios request to get users info
-                //const user = await getUserData(userID, accessToken);
-                //this.props.setUserActivities(user); 
-
-                // Once complete, go to display page
                 navigate("/main");
             } catch (error) {
                 navigate("/");

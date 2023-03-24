@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import useCustomHttp from "../../CustomHooks/useCustomHttp";
 import globalStyles from "../../GlobalStyles/GlobalStyles.module.css";
 import { useNavigate } from "react-router-dom";
 import styles from "./Styles/LoginStyles.module.css";
 import { Form, FormGroup } from "react-bootstrap";
-import HeaderComponent from "../HeaderComponent/HeaderComponent";
+import authService from "../../Services/authService";
+import { LoginProps } from "../../Dto/LoginProps";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -14,9 +14,6 @@ const LoginComponent = () => {
   const [passwordError, setPasswordError] = useState<string>("");
   const [usernameError, setUsernameError] = useState<string>("");
   const [formIsValid, setFormIsValid] = useState<boolean>(true);
-  const http = useCustomHttp();
-  const redirectUrl = "http://localhost:3000/redirect";
-  const scope = "read"
 
   const handleValidation = () => {
     let formValid = true;
@@ -48,6 +45,15 @@ const LoginComponent = () => {
   const loginSubmit = (e: any) => {
     e.preventDefault();
     setFormIsValid(handleValidation());
+    if (formIsValid) {
+      let loginProps: LoginProps = {
+          username: username,
+          password: password
+      };
+      authService.login(loginProps)
+      .then((data) => navigate("/main"))
+      .catch((err) => setPasswordError("User does not exist!"));
+    }
   };
 
   const handleLoginStrava = (e: any) => {

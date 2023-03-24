@@ -5,16 +5,10 @@ import useCustomHtpp from "../CustomHooks/useCustomHttp";
 const { REACT_APP_CLIENT_ID, REACT_APP_CLIENT_SECRET } = process.env;
 
 type CreateUser = {
-    Name: string,
-    Surname: string,
-    Email: string,
-    Phone: string,
-    StravaCredentials: StravaCredentials
-};
-
-type StravaCredentials = {
-    AuthenticationToken: string,
-    RefreshToken: string
+    firstName: string,
+    lastName: string,
+    username: string,
+    password: string,
 };
 
 export const getParamValues = (url: string) => {

@@ -5,6 +5,8 @@ import globalStyles from "../../GlobalStyles/GlobalStyles.module.css";
 import { useNavigate } from "react-router-dom";
 import styles from "./Styles/SignupStyles.module.css";
 import { Form, FormGroup } from "react-bootstrap";
+import { SignupProps } from "../../Dto/SignupProps";
+import authService from "../../Services/authService";
 
 const SignupComponent = () => {
   const navigate = useNavigate();
@@ -18,7 +20,6 @@ const SignupComponent = () => {
   const [passwordError, setPasswordError] = useState<string>("");
   const [usernameError, setUsernameError] = useState<string>("");
   const [formIsValid, setFormIsValid] = useState<boolean>(true);
-  const http = useCustomHttp();
 
   const handleValidation = () => {
     let formValid = true;
@@ -64,6 +65,17 @@ const SignupComponent = () => {
   const loginSubmit = (e: any) => {
     e.preventDefault();
     setFormIsValid(handleValidation());
+    if (formIsValid) {
+      let signupProps: SignupProps = {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password
+      };
+      authService.register(signupProps)
+      .then((data) => navigate("/login"))
+      .catch((err) => setPasswordError("Registration was unsuccessful! Try again"));  
+    }
   };
 
   return (

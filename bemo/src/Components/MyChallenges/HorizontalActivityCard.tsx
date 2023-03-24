@@ -5,6 +5,8 @@ import ArrowRight from "../../Images/ArrowRight.svg";
 import ArrowDown from "../../Images/ArrowDown.svg";
 import styles from "./Styles/ActivityStyles.module.css";
 import { ActivityType } from "../../Enums/ActivityType";
+import {joinChallenge} from "../../Services/apiManagement"
+import { join } from "path";
 
 const HorizontalActivityCard = ({
   id,
@@ -27,8 +29,9 @@ const HorizontalActivityCard = ({
   });
   const activityTypeText: string = ActivityType[type];
 
-  const onJoin = () => {
-    console.log("joined");
+
+  const onJoin = (id: number) => (event: React.MouseEvent<HTMLButtonElement>) => {
+    joinChallenge(id);
   };
 
   return (
@@ -47,7 +50,7 @@ const HorizontalActivityCard = ({
               Ends on: {formattedEndDate}
             </span>
           </div>
-          <button className={styles.activeButton} onClick={onJoin}>
+          <button className={styles.activeButton} onClick={onJoin(id)}>
             Join
           </button>
         </div>

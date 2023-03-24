@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -9,10 +9,17 @@ import { LeaderboardProps } from "../../Dto/LeaderboardProps";
 import styles from "./Styles/LeaderboardStyles.module.css"
 import ArrowLeft from "../../Images/ArrowLeft.svg"
 import SideCardComponent from "./SideCardComponent";
+import { useUserValidation } from "../../CustomHooks/useUserValidation";
 
 const LeaderboardComponent = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
+  var isValid = useUserValidation();
+  useEffect(() => {
+    if (!isValid) {
+      navigate("/");
+    }
+  });
   const [data, setData] = useState<LeaderboardProps[]>([{
     username: "Sarah",
     distance: 674,

@@ -7,10 +7,6 @@ type TableComponentProps = {
 };
 
 const TableComponent = ({ data }: TableComponentProps) => {
-    useEffect (() => {
-        console.log(data);
-    }, []);
-  
     return (
     <Table style={{width:"80vw", marginLeft:"auto", fontFamily:"PaytypeBd"}} bordered hover>
       <thead>
