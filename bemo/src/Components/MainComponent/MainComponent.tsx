@@ -9,6 +9,7 @@ import HeaderComponent from "../HeaderComponent/HeaderComponent";
 import Overview from "../OverviewComponent/OverviewComponent";
 import { OverviewProps } from "../../Dto/OverviewProps";
 import { over } from "lodash";
+import MyChallengesComponent from "../MyChallenges/MyChallengesComponent";
 
 const MainComponent = () => {
   const navigate = useNavigate();
@@ -17,12 +18,13 @@ const MainComponent = () => {
     running: 10,
     cyclingDistance: 20,
     activeChallenges: 2,
-    completedChallenges: 3
+    completedChallenges: 3,
   };
   return (
     <div>
       <HeaderComponent />
-      <Overview {...overviewData}/>
+      <Overview {...overviewData} />
+      <MyChallengesComponent />
     </div>
   );
 };
